@@ -1,6 +1,5 @@
 import React from "react";
-import { Text } from "@gluestack-ui/themed";
-import Container from "../components/Container";
+import Container from "../components/moviesAndTv/Container";
 
 const TvShowsScreen: React.FC = () => {
   return <Container mode="tv" />;

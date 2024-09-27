@@ -46,8 +46,7 @@ const App: React.FC = () => {
           <Stack.Screen
             name="DetailScreen"
             component={DetailScreen}
-            options={({ route }) => ({
-              title: route.params?.data.title || "More Details",
+            options={() => ({
               headerTintColor: "#333",
               headerBackTitle: "Back",
             })}

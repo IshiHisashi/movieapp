@@ -8,9 +8,24 @@ import {
   ButtonText,
 } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-const Card: React.FC = ({ data, mode }) => {
-  const navigation = useNavigation();
+interface CardProps {
+  data: any;
+  mode: string;
+}
+
+type DataInDetailScreen = {
+  DetailScreen: { id: string; mode: string };
+};
+type DetailScreenNavigationProp = NativeStackNavigationProp<
+  DataInDetailScreen,
+  "DetailScreen"
+>;
+
+const Card: React.FC<CardProps> = ({ data, mode }) => {
+  const navigation = useNavigation<DetailScreenNavigationProp>();
+  const id = data.id;
 
   return (
     <Box py={10} px={20} flexDirection="row" gap={16}>
@@ -34,7 +49,7 @@ const Card: React.FC = ({ data, mode }) => {
           isDisabled={false}
           isFocusVisible={false}
           onPress={() => {
-            navigation.navigate("DetailScreen", { data });
+            navigation.navigate("DetailScreen", { id, mode });
           }}
         >
           <ButtonText>More Details</ButtonText>
