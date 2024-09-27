@@ -9,14 +9,15 @@ import {
 } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { FetchedMovieData } from "types/types";
 
 interface CardProps {
-  data: any;
+  data: FetchedMovieData;
   mode: string;
 }
 
 type DataInDetailScreen = {
-  DetailScreen: { id: string; mode: string };
+  DetailScreen: { id: number; mode: string };
 };
 type DetailScreenNavigationProp = NativeStackNavigationProp<
   DataInDetailScreen,

@@ -12,14 +12,21 @@ import {
   Text,
   View,
 } from "@gluestack-ui/themed";
+import { Ionicons } from "@expo/vector-icons";
 
 interface DropdownProps {
   state: string;
   setState: React.Dispatch<React.SetStateAction<string>>;
   mode: string;
+  hasError?: boolean;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ state, setState, mode }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  state,
+  setState,
+  mode,
+  hasError,
+}) => {
   const categoryList: string[] =
     mode === "movie"
       ? ["now_playing", "popular", "top_rated", "upcoming"]
@@ -40,12 +47,15 @@ const Dropdown: React.FC<DropdownProps> = ({ state, setState, mode }) => {
           w={200}
           h={30}
           borderWidth={1}
-          borderColor="#ddd"
+          borderColor={hasError ? "red" : "#ddd"}
           borderRadius={4}
           py={4}
-          pl={10}
+          px={10}
+          flexDirection="row"
+          justifyContent="space-between"
         >
           <Text fontSize={14}>{state}</Text>
+          <Ionicons name="chevron-down" size={20} color="#999" />
         </View>
       </Pressable>
       <Actionsheet isOpen={showActionsheet} onClose={handleClose} zIndex={999}>
@@ -69,6 +79,9 @@ const Dropdown: React.FC<DropdownProps> = ({ state, setState, mode }) => {
               >
                 {item}
               </ActionsheetItemText>
+              {state === item && (
+                <Ionicons name="checkmark" size={20} color="white" />
+              )}
             </ActionsheetItem>
           ))}
         </ActionsheetContent>

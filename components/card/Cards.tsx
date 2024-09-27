@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, FlatList, ScrollView } from "@gluestack-ui/themed";
 import Card from "./Card";
+import { FetchedMovieData } from "types/types";
 
 interface CardsProps {
   mode: string;
-  fetchedData: any;
+  fetchedData: FetchedMovieData[];
 }
 
 const Cards: React.FC<CardsProps> = ({ mode, fetchedData }) => {

@@ -4,16 +4,17 @@ import { RouteProp, useRoute, useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { APIKEY } from "@env";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { FetchedMovieData } from "types/types";
 
 type DetailScreenRouteProp = RouteProp<
-  { DetailScreen: { id: string; mode: string } },
+  { DetailScreen: { id: number; mode: string } },
   "DetailScreen"
 >;
 
 type NavigationProp = StackNavigationProp<any>;
 
 const DetailScreen: React.FC = () => {
-  const [detailData, setDetailData] = useState<any>();
+  const [detailData, setDetailData] = useState<FetchedMovieData>();
   const route = useRoute<DetailScreenRouteProp>();
   const navigation = useNavigation<NavigationProp>();
   const { id, mode } = route.params;

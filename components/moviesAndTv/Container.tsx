@@ -4,6 +4,7 @@ import Dropdown from "../Dropdown";
 import Cards from "../card/Cards";
 import axios from "axios";
 import { APIKEY } from "@env";
+import { FetchedMovieData } from "types/types";
 
 interface ContainerProp {
   mode: string;
@@ -13,7 +14,7 @@ const Container: React.FC<ContainerProp> = ({ mode }) => {
   const [category, setCategory] = useState<string>(
     mode === "movie" ? "now_playing" : "airing_today"
   );
-  const [fetchedData, setFetchedData] = useState<any>(null);
+  const [fetchedData, setFetchedData] = useState<FetchedMovieData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
