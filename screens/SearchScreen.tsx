@@ -51,7 +51,10 @@ const SearchScreen: React.FC = () => {
   return (
     <View flexDirection="column" gap={10} p={16}>
       <View px={20}>
-        <Text fontWeight="$semibold">Search Movie/TV Show Name</Text>
+        <View flexDirection="row" alignItems="center">
+          <Text fontWeight="$semibold">Search Movie/TV Show Name</Text>
+          <Text color="red"> *</Text>
+        </View>
         <Input borderColor={hasError ? "red" : "gray"}>
           <InputSlot pl="$3">
             <Ionicons name="search" size={20} color="gray" />
@@ -62,7 +65,11 @@ const SearchScreen: React.FC = () => {
             value={searchName}
           />
         </Input>
-        <Text fontWeight="$semibold">Choose Search Type</Text>
+
+        <View flexDirection="row" alignItems="center">
+          <Text fontWeight="$semibold">Choose Search Type</Text>
+          <Text color="red"> *</Text>
+        </View>
         <View flexDirection="row" alignItems="center" gap={20}>
           <Dropdown
             setState={setGenre}
@@ -92,6 +99,7 @@ const SearchScreen: React.FC = () => {
           <Text fontSize={12}>Please select a search type</Text>
         )}
       </View>
+
       {isSearched ? (
         <Cards mode="search" fetchedData={searchedData} />
       ) : (
