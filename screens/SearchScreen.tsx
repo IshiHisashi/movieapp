@@ -33,6 +33,8 @@ const SearchScreen: React.FC = () => {
       setSearchedData(res.data.results);
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsSearched(true);
     }
   };
 
@@ -44,12 +46,11 @@ const SearchScreen: React.FC = () => {
     }
 
     setHasError(false);
-    setIsSearched(true);
     fetchData();
   };
 
   return (
-    <View flexDirection="column" gap={10} p={16}>
+    <View flex={1} flexDirection="column" gap={10} p={16}>
       <View px={20}>
         <View flexDirection="row" alignItems="center">
           <Text fontWeight="$semibold">Search Movie/TV Show Name</Text>

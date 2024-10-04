@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, FlatList, ScrollView } from "@gluestack-ui/themed";
+import React from "react";
+import { View, FlatList, Text } from "@gluestack-ui/themed";
 import Card from "./Card";
 import { FetchedMovieData } from "types/types";
 
@@ -10,7 +10,7 @@ interface CardsProps {
 
 const Cards: React.FC<CardsProps> = ({ mode, fetchedData }) => {
   return (
-    <View>
+    <View flex={1}>
       <FlatList
         data={fetchedData}
         renderItem={({ item }: { item: any }) => {
