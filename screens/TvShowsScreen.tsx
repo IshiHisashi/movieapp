@@ -1,7 +1,8 @@
 import React from "react";
+import Container from "../components/moviesAndTv/Container";
 
-const TvShowsScreen = () => {
-  return <div>TvShowsScreen</div>;
+const TvShowsScreen: React.FC = () => {
+  return <Container mode="tv" />;
 };
 
 export default TvShowsScreen;

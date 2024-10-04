@@ -9,7 +9,14 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@env": ["./types/env.d.ts"]
+    }
+    // "typeRoots": ["./types"]
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
 }
